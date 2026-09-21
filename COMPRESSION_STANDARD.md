@@ -2,6 +2,8 @@
 
 7-Zip (`.7z`, LZMA2), tuned to favor ratio over speed. This machine has 32 GB RAM and 16 logical cores — the profiles below are sized against that; re-check the memory math in "Profiles" if this ever runs on different hardware.
 
+**The simple rule: files get compressed, folders don't.** Every model becomes one `.7z`. The folders holding them stay plain and uncompressed, no standing exceptions. The only time a folder gets zipped at all is when you're actively packaging a pack to ship to someone (see "Wrapping a pack for distribution") — and that zip is disposable, thrown away once it's sent, not a fixture of the collection. No fixed-size chunking either, absent an actual transfer constraint that requires it. Everything else in this document is the nuance behind that one rule, not an exception to it.
+
 ## Core principle: compress after tagging, never instead of it
 
 TagSpaces can browse and preview *inside* `.zip` files (its Archive Viewer extension), but it has no equivalent support for `.7z` — a compressed pack is a dead end for live tagging or searching its contents. So the sequence is always:
