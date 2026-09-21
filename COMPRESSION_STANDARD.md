@@ -27,6 +27,20 @@ In practice:
 
 This also simplifies the bulk-vs-per-file tiering in `TAGGING_GUIDE.md`: at this granularity, there normally *is* no per-file tier left — everything worth tagging is uniform across the one archive, so a single bulk pass on it is already complete.
 
+## Wrapping a pack for distribution
+
+A multi-model pack folder full of `Model.7z` files is great for your own tag search, but it's several files to hand someone if they want the whole pack. Wrap the folder into a `.zip` using **store mode** (no compression - the payload's already maximally compressed by LZMA2, so asking DEFLATE to compress it again wastes time for no gain):
+
+```powershell
+& "C:\Program Files\7-Zip\7z.exe" a -tzip -mx=0 "PackName.zip" "PackName\*"
+```
+
+TagSpaces' Archive Viewer extension can browse into `.zip` (not `.7z`), so this gets you a single shareable file that's still glanceable — opening it shows the list of models inside (name, size, date) without extracting anything. What it does *not* do is surface each model's tags while sealed — the Archive Viewer reads raw zip metadata, not TagSpaces' sidecar system, so tag chips and search only come back once a specific `Model.7z` is pulled back out. Nothing is lost, it just isn't live while nested two layers deep.
+
+Keep the outer zip's own tag limited to what's genuinely uniform for the whole pack (`Source`, `Creator`, `License`, base `ObjectType`) — the same coarse-tag principle as a lone sealed archive. The precise per-model tags (`Faction`, `Genre`, `Scale`, ...) stay on each `Model.7z` inside, dormant until extracted.
+
+Treat this wrap as disposable and regenerate it whenever you actually need to hand a whole pack to someone, rather than keeping it as the permanent form — `scripts/Wrap-Pack.ps1` does the wrap-and-verify in one step. Keeping the loose `Model.7z` files as your at-rest copy means your own tag search stays fully live for every model; the zip is just an export.
+
 ## Profiles
 
 ```powershell
@@ -68,6 +82,21 @@ Real downloaded packs rarely look like a clean folder of STLs. Before compressin
    ```
    (Requires admin PowerShell; a reboot may be needed for all apps to pick it up.)
 5. **Tag, verify, then compress** per the core principle above, at the model-level unit described in "Choosing the compression unit" — not one giant archive for a whole download, and not one for all of `Miniatures/`. Per-model archives stay independently shareable, tag precisely, and keep the dictionary size sane relative to what's actually in each one.
+
+## Splitting into fixed-size volumes (e.g. 1 GB chunks) — situational, not standard
+
+7-Zip's `-v` switch slices an archive's *already-compressed output* into fixed-size parts (`archive.7z.001`, `.002`, ...). It's worth being precise about what this does and doesn't do:
+
+- **It has zero effect on compression ratio.** Splitting happens after compression is done - it just chops the resulting bytes into pieces. "1 GB chunks" doesn't compress better or worse than one big file; it's a delivery-mechanism knob, not a compression-efficiency one.
+- **It actively conflicts with the tagging design if applied to the primary `Model.7z` files.** A split archive's real filename becomes `Model.7z.001`, `.002`, etc. - there's no longer a single `.7z` to tag, TagSpaces won't recognize `.001`/`.002` as an archive type at all, and every part must be present and intact to extract anything. That's fragility added for no ratio benefit.
+
+So: don't split the at-rest `Model.7z` or `PackName.zip` files as a standing rule. The only time this is worth reaching for is a specific transfer constraint - a sharing platform or method with a hard per-file size cap - and even then, apply it as a one-off to a disposable copy made *for that transfer*, not to the archive that lives in the collection:
+
+```powershell
+& "C:\Program Files\7-Zip\7z.exe" a -tzip -mx=0 -v1g "PackName_forSharing.zip" "PackName\*"
+```
+
+If a specific limit like this is actually driving the idea (an upload target, an email attachment cap, an older transfer tool), worth naming it - the right chunk size depends entirely on that constraint, not on a round number like 1 GB.
 
 ## Worth A/B testing later, not assumed
 

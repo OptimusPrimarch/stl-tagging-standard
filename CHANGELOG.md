@@ -41,3 +41,10 @@ A tag library export from an earlier, independent attempt at this project (`tags
 - Folder rule: a single-model pack's archive replaces its pack folder entirely; a multi-model pack keeps a thin pack folder holding one `.7z` per model. Pack folders end up bare by design.
 - Added guidance to pull one representative preview render out of each archive (loose, or set as the file's TagSpaces thumbnail) so a model is recognizable and taggable without extracting.
 - Flipped the default compression profile from Everyday (256 MB dictionary) to Max (1.5 GB dictionary): at model-sized units, Max's dictionary almost always covers the whole archive in one solid window, so there's no longer a size-driven reason to default to the lighter profile. `Compress-Pack.ps1` updated to match.
+
+## 2026-09-21 — v1.4.0 — Distribution wrapping and a note on volume-splitting
+
+- Added a second, outer packaging layer for multi-model packs: `Model.7z` files (LZMA2, solid, tagged individually) get wrapped into one `PackName.zip` in STORE mode (`-mx=0`, no recompression) purely for single-file distribution. Verified TagSpaces' Archive Viewer surfaces filenames/sizes/dates for content nested in a `.zip` but not sidecar tag chips - the wrap gives glanceable pack contents without extraction, not live tag search two layers deep.
+- Established the outer zip as disposable/regenerate-on-demand at share time, not the permanent at-rest form - keeps every model's own tags fully live for day-to-day search on the drive itself.
+- Added `scripts/Wrap-Pack.ps1`.
+- Documented fixed-size volume-splitting (`-v`) as a delivery-mechanism knob with zero effect on compression ratio, and explicitly not a default: splitting a `Model.7z` breaks the single-file/tag mapping the whole taxonomy depends on. Left as a one-off tool for a specific transfer-size constraint, applied to a disposable copy, not to the archive that lives in the collection.

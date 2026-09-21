@@ -10,7 +10,8 @@ This repo holds **only the classification system** — the tag library definitio
 - [`TAGGING_GUIDE.md`](./TAGGING_GUIDE.md) — what each tag group means, the controlled vocabulary, and the workflow for tagging a huge backlog without it taking forever.
 - [`FOLDER_FRAMEWORK.md`](./FOLDER_FRAMEWORK.md) — the (deliberately thin) folder structure the tags live on top of.
 - [`COMPRESSION_STANDARD.md`](./COMPRESSION_STANDARD.md) — the 7-Zip settings and workflow for compressing tagged packs into cold storage, including handling messy real-world bundles.
-- [`scripts/Compress-Pack.ps1`](./scripts/Compress-Pack.ps1) — compresses one pack folder per the standard, verifies it, and reports the size savings. Never deletes the source.
+- [`scripts/Compress-Pack.ps1`](./scripts/Compress-Pack.ps1) — compresses one model-level folder per the standard, verifies it, and reports the size savings. Never deletes the source.
+- [`scripts/Wrap-Pack.ps1`](./scripts/Wrap-Pack.ps1) — wraps a pack folder of already-compressed `Model.7z` files into a single store-mode `.zip` for handing a whole pack to someone. Disposable/regenerable, never deletes the source.
 - [`CHANGELOG.md`](./CHANGELOG.md) — how the taxonomy and standards have evolved over time.
 
 ## Using this on a new machine or with a friend
