@@ -66,6 +66,8 @@ Tagging every file individually isn't finishable on a collection this size. Spli
 
 **Per-file tier** — varies within a pack, requires actually looking at each item: `Faction`, `Unit-Type`, `Scope`, `Scale`, `Format`. Expensive; backfill opportunistically rather than blocking migration on it.
 
+In practice, this per-file tier mostly disappears once you're compressing at the model-boundary unit described in `COMPRESSION_STANDARD.md`. At that granularity every tag group is uniform across the one archive (all its poses/support variants are the same model), so tagging the archive once, completely, is normal — not a deferred, partial pass.
+
 ## The Status workflow
 
 Tag everything `Status:Needs-Triage` as it lands in `_Inbox` or gets sorted into a bucket. Once you've looked at a file and applied whichever bulk + per-file tags genuinely apply to it (even if that's only one or two), remove `Needs-Triage`. Progress on the whole migration becomes a single query: how many files still carry `Needs-Triage`. This is what lets sparse tagging coexist with actually knowing what's left to do — completeness lives in `Status` alone, not in whether every descriptive group got filled in.

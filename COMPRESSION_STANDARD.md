@@ -7,28 +7,44 @@
 TagSpaces can browse and preview *inside* `.zip` files (its Archive Viewer extension), but it has no equivalent support for `.7z` — a compressed pack is a dead end for live tagging or searching its contents. So the sequence is always:
 
 1. Extract → normalize filenames → tag every file that warrants it (per `TAGGING_GUIDE.md`) → confirm tags look right in TagSpaces.
-2. **Then** compress the whole pack folder — files and their `.ts` sidecar folder together — into one `.7z` sitting where the folder was.
+2. **Then** compress each unit (see "Choosing the compression unit" below) — its files and their `.ts` sidecar folder together — into one `.7z` sitting where the folder was.
 3. Put a coarse tag directly on the `.7z` file itself (its own sidecar entry works fine on any file type): at minimum `ObjectType`, `License`, `Source`/`Creator`. That keeps the archive searchable without opening it.
 4. Delete the extracted folder only after step 2 is verified (see "Verify before you delete" below). The full per-file tags aren't lost — they're sealed inside the archive's `.ts` folder and reappear the moment you extract it again.
 
 This makes archives a cold-storage/sharing format, not a live-browsing one. If you need to retag or re-triage a pack later, extract it, edit, recompress.
 
+## Choosing the compression unit: the model, not the download
+
+A downloaded "pack" almost never turns out to be one thing. Two real samples from this collection each turned out to bundle **six distinct creatures** under a single zip. Compress at that whole-download level and you're stuck: the one visible, taggable `.7z` has to somehow represent six creatures that might have six different Factions, Genres, or Scales — exactly the ambiguity tags exist to solve, made unsolvable by sealing it behind one opaque archive.
+
+The fix is to compress at the boundary of **one distinct model** instead — the level where every tag group (`GameSystem`, `Genre`, `Faction`, `Unit-Type`, `Scope`, `Scale`, `Format`, `Material`, `Creator`, `Source`, `License`) is genuinely uniform across everything inside it. A creature's `Pose 1`/`Pose 2`/`Pose 3` and `Supported`/`Unsupported`/`Base` variants all share the same Faction, same Genre, same Scale, same everything — they're one product, not several. That's not a coincidence; it's what makes this the right unit: tag the archive once, completely, and you never need to reopen it just to fix a tag. Bundling those variants together into one archive also happens to be exactly what solid compression wants, since near-duplicate meshes (a supported vs. unsupported version of the same model) are the biggest redundancy in the whole pack.
+
+In practice:
+- **A pack containing one model** → the archive replaces the pack folder entirely: `Miniatures/PackName.7z`.
+- **A pack containing several models** (the common case) → keep a thin pack folder for provenance, one archive per model inside it: `Miniatures/PackName/Model1.7z`, `Miniatures/PackName/Model2.7z`, ... The folder ends up holding a handful of `.7z` files and nothing else — bare, by design, exactly as intended.
+- Use the creator's own top-level subfolders as the model boundary when the download already has them (it almost always does) — that's a free, reliable signal, not a judgment call you have to make yourself.
+- **Pull one representative render/preview image out and leave it loose** next to the archive (or set it as the `.7z`'s TagSpaces thumbnail) before compressing the rest. That's what makes tagging "easily accessible" without extracting anything — you can see what a model is at a glance, tag its archive accordingly, and never need to open it again. Any extra render angles can go inside the archive with everything else.
+
+This also simplifies the bulk-vs-per-file tiering in `TAGGING_GUIDE.md`: at this granularity, there normally *is* no per-file tier left — everything worth tagging is uniform across the one archive, so a single bulk pass on it is already complete.
+
 ## Profiles
 
 ```powershell
-# Everyday — safe on any machine, ~3 GB RAM during compression
-& "C:\Program Files\7-Zip\7z.exe" a -t7z -m0=lzma2 -mx=9 -mfb=273 -md=256m -ms=on -mqs=on -mmt=on "PackName.7z" "PackName\*"
+# Max — the default now that units are model-sized, not whole-download-sized; ~16 GB RAM during compression
+& "C:\Program Files\7-Zip\7z.exe" a -t7z -m0=lzma2 -mx=9 -mfb=273 -md=1536m -ms=on -mqs=on -mmt=on "ModelName.7z" "ModelName\*"
 
-# Max — best ratio this machine can push, ~16 GB RAM during compression
-& "C:\Program Files\7-Zip\7z.exe" a -t7z -m0=lzma2 -mx=9 -mfb=273 -md=1536m -ms=on -mqs=on -mmt=on "PackName.7z" "PackName\*"
+# Everyday — fallback when RAM is tight right now, or for an unusually huge single model; ~3 GB RAM during compression
+& "C:\Program Files\7-Zip\7z.exe" a -t7z -m0=lzma2 -mx=9 -mfb=273 -md=256m -ms=on -mqs=on -mmt=on "ModelName.7z" "ModelName\*"
 ```
+
+A single model's pose/support variants rarely add up to more than a few hundred MB to low-GB, so the Max profile's 1.5 GB dictionary will almost always cover the *entire* archive in one solid window — full cross-variant matching, every time. That's why Max is the default now: the RAM cost is fixed regardless of how small the archive actually is, so there's no longer a reason to reach for Everyday except when free RAM is tight at the moment (check with `Get-CimInstance Win32_OperatingSystem`) or a single model is genuinely huge.
 
 What each flag is doing:
 - `-mx=9` — Ultra preset. On its own this only sets fast-bytes to 64, not the true max.
 - `-mfb=273` — pushes fast-bytes to its actual ceiling (max is 273). This is the single biggest ratio-for-speed trade you can make; it's exactly what "favor compression over speed" buys you.
-- `-md=` — dictionary size. Bigger lets solid compression find matches across more of the pack at once. Memory cost for compression ≈ dictionary size × 10.5–11.5 (the default `bt4` match finder); decompression only needs roughly the dictionary size itself, so anyone you send a `.7z` to doesn't inherit your RAM cost. `256m` → ~3 GB to compress. `1536m` → ~16 GB — leaves headroom on 32 GB total, but **you currently have well under 1 GB free**, so close other apps before running the Max profile.
-- `-ms=on` — solid archiving: treats every file in the pack as one continuous stream instead of compressing each separately. This is where most of the real gain comes from on a folder of many related files, and it's the whole reason to compress per-pack rather than per-file.
-- `-mqs=on` — sorts files by type before the solid pass, so all STLs, all renders/images, all PDFs end up adjacent in the stream instead of interleaved. Matters specifically for the "wonky" mixed-content packs below. (Its usual downside — slower seeks on HDDs from non-name-order layout — doesn't apply on an SSD.)
+- `-md=` — dictionary size. Bigger lets solid compression find matches across more of the archive at once. Memory cost for compression ≈ dictionary size × 10.5–11.5 (the default `bt4` match finder); decompression only needs roughly the dictionary size itself, so anyone you send a `.7z` to doesn't inherit your RAM cost. `1536m` → ~16 GB to compress, comfortably inside 32 GB total when nothing else heavy is running; `256m` → ~3 GB, safe alongside anything.
+- `-ms=on` — solid archiving: treats every file in the archive as one continuous stream instead of compressing each separately. This is where most of the real gain comes from on a model's pose/support variants, and it's the whole reason to compress per-model rather than per-file.
+- `-mqs=on` — sorts files by type before the solid pass, so STLs, LYS project files, and renders end up adjacent in the stream instead of interleaved. (Its usual downside — slower seeks on HDDs from non-name-order layout — doesn't apply on an SSD.)
 - `-mmt=on` — use all 16 cores. LZMA2 can parallelize within a solid block at `mx=9`, so this buys speed back with no meaningful ratio cost.
 
 Verify, always, before deleting the source:
@@ -51,7 +67,7 @@ Real downloaded packs rarely look like a clean folder of STLs. Before compressin
    New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
    ```
    (Requires admin PowerShell; a reboot may be needed for all apps to pick it up.)
-5. **Tag, verify, then compress** per the core principle above, one `.7z` per pack folder — not one giant archive for all of `Miniatures/`. Per-pack archives stay independently shareable and keep the dictionary size sane relative to what's actually in each one.
+5. **Tag, verify, then compress** per the core principle above, at the model-level unit described in "Choosing the compression unit" — not one giant archive for a whole download, and not one for all of `Miniatures/`. Per-model archives stay independently shareable, tag precisely, and keep the dictionary size sane relative to what's actually in each one.
 
 ## Worth A/B testing later, not assumed
 

@@ -29,6 +29,8 @@ STL_CENTRAL/
 
 `PrintAndPlay` and `Papercraft` were added after reviewing a previous tagging attempt (see `CHANGELOG.md` v1.2.0) — real historical tag usage showed both exist in the collection as genuinely distinct object types, not sub-categories of Miniatures or Terrain.
 
+Once compressed, a `<PackName-or-Creator>/` folder is expected to be bare: one `.7z` per distinct model inside it (or the archive replaces the folder entirely if the pack was only ever one model), plus maybe a loose preview image or two. See `COMPRESSION_STANDARD.md` for why the model — not the whole download — is the right unit to compress at, and for the folder-collapsing rule when a pack turns out to be just one model.
+
 ## Why the pack-subfolder layer
 
 Grouping by original pack/bundle/creator, rather than dumping files flat, is free organization you already have from how the files arrived — no categorization judgment needed, so it never blocks migration. It also:

@@ -1,18 +1,20 @@
 <#
-Compresses one pack folder into a solid, maximum-ratio .7z next to it,
-verifies the archive, and reports size savings. Never deletes the source -
-that stays a manual, confirmed step once you're satisfied the archive is good.
+Compresses one model-level folder (see COMPRESSION_STANDARD.md - the unit is
+one distinct model/product, not a whole downloaded pack) into a solid,
+maximum-ratio .7z next to it, verifies the archive, and reports size savings.
+Never deletes the source - that stays a manual, confirmed step once you're
+satisfied the archive is good.
 
 Usage:
-  .\Compress-Pack.ps1 -Path "F:\STL_CENTRAL\Miniatures\ElvishInfantryPack"
-  .\Compress-Pack.ps1 -Path "F:\STL_CENTRAL\Miniatures\ElvishInfantryPack" -Profile Max
+  .\Compress-Pack.ps1 -Path "F:\STL_CENTRAL\Miniatures\SomePack\TarokBeast"
+  .\Compress-Pack.ps1 -Path "F:\STL_CENTRAL\Miniatures\SingleModelPack" -Profile Everyday
 #>
 param(
     [Parameter(Mandatory = $true)]
     [string]$Path,
 
-    [ValidateSet("Default", "Max")]
-    [string]$Profile = "Default",
+    [ValidateSet("Max", "Everyday")]
+    [string]$Profile = "Max",
 
     [string]$SevenZipPath = "C:\Program Files\7-Zip\7z.exe"
 )
@@ -34,7 +36,7 @@ if (Test-Path $archive) {
     throw "$archive already exists - remove it first or choose a different target"
 }
 
-$dict = if ($Profile -eq "Max") { "1536m" } else { "256m" }
+$dict = if ($Profile -eq "Everyday") { "256m" } else { "1536m" }
 
 Write-Output "Compressing '$name' (profile: $Profile, dictionary: $dict)..."
 $sizeBefore = (Get-ChildItem $Path -Recurse -File | Measure-Object -Property Length -Sum).Sum

@@ -33,3 +33,11 @@ A tag library export from an earlier, independent attempt at this project (`tags
 - **Format**: added `Combat-Patrol` and `Spearhead`. The previous attempt had mixed these and `Skirmish`/`Mass-Battle` directly into its GameSystem group alongside actual rulesets — real-world confirmation of the GameSystem/Format conflation this taxonomy's group separation was designed to avoid.
 - **ProjectPlans**: carried forward as an empty group (was never populated in the source either); purpose unconfirmed.
 - Noted a stray `SCIF` tag (likely a typo of `SCIFI`) found in the previous export's orphaned "Collected Tags" group as a real example of why the naming-convention rule exists.
+
+## 2026-09-21 — v1.3.0 — Compression unit corrected to the model boundary
+
+- Inspected two real sample packs and found each bundles **six distinct creatures** under one download. Compressing at the whole-download level (the original guidance) would have forced one outer archive tag to represent six potentially different Factions/Genres/Scales — confirmed via direct listing, not assumed.
+- Redefined the compression unit as **one distinct model/product** (a creature's pose + support variants), not the original download. At that granularity every tag group is uniform, so a single tagging pass on the archive is complete — the per-file tiering tier in `TAGGING_GUIDE.md` mostly collapses away as a result.
+- Folder rule: a single-model pack's archive replaces its pack folder entirely; a multi-model pack keeps a thin pack folder holding one `.7z` per model. Pack folders end up bare by design.
+- Added guidance to pull one representative preview render out of each archive (loose, or set as the file's TagSpaces thumbnail) so a model is recognizable and taggable without extracting.
+- Flipped the default compression profile from Everyday (256 MB dictionary) to Max (1.5 GB dictionary): at model-sized units, Max's dictionary almost always covers the whole archive in one solid window, so there's no longer a size-driven reason to default to the lighter profile. `Compress-Pack.ps1` updated to match.
