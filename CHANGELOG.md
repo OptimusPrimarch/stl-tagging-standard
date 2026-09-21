@@ -18,3 +18,18 @@ All notable changes to the tag taxonomy and folder framework are logged here, ne
 - Established per-pack archiving (one `.7z` per pack folder, matching the folder framework) with a coarse tag applied to the archive file itself so it stays searchable without extracting.
 - Added `scripts/Compress-Pack.ps1`, which compresses and verifies a pack's archive integrity before any manual deletion of the source folder.
 - Documented pre-compression workflow for messy real-world packs: flattening nested archives, culling duplicate/derivative content, normalizing filenames before tagging (not after, to avoid orphaning sidecar files), and enabling Windows long-path support.
+
+## 2026-09-21 — v1.2.0 — Merged a previous tagging attempt's real usage data
+
+A tag library export from an earlier, independent attempt at this project (`tagspaces-settings-export`, TagSpaces 6.13.12) was reviewed and merged in. Real usage beat the speculative starter vocabulary in several places:
+
+- **GameSystem**: added `Age-of-Fantasy`, `Grimdark-Future`, `Kill-Team` (merged with existing), `Infinity`, `Trench-Crusade`, `Torch-and-Shield`, `Arsenal`, `FSD`, `1490-Doom` (the last three carried forward unverified — meaning wasn't obvious from the export alone).
+- **Genre**: adopted the previous attempt's much larger real list (`Pulp`, `Modern`, `Ancient-History`, `WW1`, `WW2`, `Cold-War`, `Viking`, `Black-Powder`, `Dinos`, `Aerial`, `Naval`, `Starship`, `Star-Wars`, `RPG`, `Bugs`) on top of the existing set.
+- **Faction**: adopted a much deeper real list (Chaos god sub-factions, several Space Marine chapters as siblings of `Astartes`, `Imperium`, `Eldar`, `Tyranids`, etc.), keeping the existing generic/fantasy-side values as a fallback for non-40k content. `Dark`, `Saurians`, `Saurian-Starhost` carried forward unverified.
+- **ObjectType**: added `Print-and-Play` and `Papercraft` as genuinely distinct object types (previously under a "ProductType" group); matching folders added to the framework.
+- **Unit-Type**: added `Bust` and `Display-Sculpture` (previously separate "ProductType" values).
+- **Material**: added `Wood` and `Paper` — the previous attempt's data implies this collection includes non-printed content (e.g. laser-cut MDF terrain).
+- **Scope**: confirmed the existing `Warband`/`Faction-Bundle`/`Mega-Bundle` values already cover the previous attempt's `WARBAND`/`ARMY` "ProductType" values; did not reintroduce the word "Army" as a tag.
+- **Format**: added `Combat-Patrol` and `Spearhead`. The previous attempt had mixed these and `Skirmish`/`Mass-Battle` directly into its GameSystem group alongside actual rulesets — real-world confirmation of the GameSystem/Format conflation this taxonomy's group separation was designed to avoid.
+- **ProjectPlans**: carried forward as an empty group (was never populated in the source either); purpose unconfirmed.
+- Noted a stray `SCIF` tag (likely a typo of `SCIFI`) found in the previous export's orphaned "Collected Tags" group as a real example of why the naming-convention rule exists.

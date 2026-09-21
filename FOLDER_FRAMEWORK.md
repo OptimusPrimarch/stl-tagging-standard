@@ -17,9 +17,17 @@ STL_CENTRAL/
   Tools_Accessories/           fidgets, organizers, non-wargaming functional prints
     <PackName-or-Creator>/
     _Loose/
+  PrintAndPlay/                board/card game components - not miniatures or terrain
+    <PackName-or-Creator>/
+    _Loose/
+  Papercraft/                  paper-based models/terrain - not 3D-printed at all
+    <PackName-or-Creator>/
+    _Loose/
   _Inbox/                      freshly migrated, untouched, not yet triaged
   _TagStandard/                this repo (tag library + docs, no STLs)
 ```
+
+`PrintAndPlay` and `Papercraft` were added after reviewing a previous tagging attempt (see `CHANGELOG.md` v1.2.0) — real historical tag usage showed both exist in the collection as genuinely distinct object types, not sub-categories of Miniatures or Terrain.
 
 ## Why the pack-subfolder layer
 
