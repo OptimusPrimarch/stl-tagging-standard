@@ -14,29 +14,27 @@ This repo holds **only the classification system** — the tag library definitio
 - [`scripts/Wrap-Pack.ps1`](./scripts/Wrap-Pack.ps1) — wraps a pack folder of already-compressed `Model.7z` files into a single store-mode `.zip` for handing a whole pack to someone. Disposable/regenerable, never deletes the source.
 - [`CHANGELOG.md`](./CHANGELOG.md) — how the taxonomy and standards have evolved over time.
 
-## Keeping the primary collection (F:\STL_CENTRAL) in sync
+## Loading the tag library — every session, on this machine or any other
 
-TagSpaces reads a location's tags from a plain file called `tsl.json` sitting in that location's own `.ts` folder — a fixed path it doesn't let you redirect elsewhere. This works in the free **Lite** edition with no import UI involved at all, confirmed by testing.
+Confirmed by direct testing (fully quitting TagSpaces, verifying no process was left running, then relaunching cold): the tag library does **not** persist automatically in the free **Lite** edition. That applies whether it was loaded via the global import or via a `tsl.json` file sitting in a location's `.ts` folder — neither survives a genuine cold start on its own. **Import is step 1 of every session, deliberately, not a one-time setup task.**
 
-`F:\STL_CENTRAL\.ts\tsl.json` is a **generated copy** of this repo's `tag-library.json` — not something git tracks (`.ts` is TagSpaces' own internal cache/metadata folder, sitting outside this repo's root, and deliberately not something we want our version history mixed into). Treat it like a build artifact: whenever `tag-library.json` changes, regenerate it and reopen the location in TagSpaces to pick it up.
+1. Open TagSpaces.
+2. **Settings → Backup Settings** → import `tag-library.json` from this repo. (The `⋮` menu on the Tag Library panel does the same thing, but only appears while the library is already empty — Backup Settings works regardless of state, so it's the reliable path.)
+3. Open `F:\STL_CENTRAL` as the location and work as normal.
+
+This is a conscious, accepted part of the workflow, not a bug being worked around.
+
+`F:\STL_CENTRAL\.ts\tsl.json` is still kept as a regenerated copy of `tag-library.json` whenever the file changes — `.ts` is TagSpaces' own internal cache folder outside this repo's root, so it's never git-tracked. What exactly it does on its own is unconfirmed after the test above; keeping it current costs nothing and doesn't replace the Backup Settings import.
 
 ```powershell
 Copy-Item "F:\STL_CENTRAL\_TagStandard\tag-library.json" "F:\STL_CENTRAL\.ts\tsl.json" -Force
 ```
 
-(A symlink was tried here briefly and reverted — it needed admin elevation to create, and was pinned to an absolute path that would silently break the moment this portable drive got a different letter on another machine. A plain regenerated copy has neither problem.)
+## Using this on a different machine or with a friend
 
-## Using this on a new machine or with a friend
+Same as above: install [TagSpaces](https://www.tagspaces.org/products/lite/), then **Settings → Backup Settings** (or the `⋮` on the Tag Library panel, while it's still empty) → import `tag-library.json`. Read `TAGGING_GUIDE.md` for how the groups are meant to be used.
 
-`tsl.json` is scoped to one location, so for anywhere else — a different machine, or a friend who isn't setting up `F:\STL_CENTRAL` as their own location — use the global Tag Library import instead:
-
-1. Install [TagSpaces](https://www.tagspaces.org/products/lite/) (the free Lite version reads/writes filename and sidecar tags).
-2. Open TagSpaces → Settings → Tag Library → **Import Tag Library** → select `tag-library.json`.
-3. Read `TAGGING_GUIDE.md` for how the groups are meant to be used.
-
-**Known Lite quirk**: the Import/Export menu (the `⋮` on the Tag Library panel) only shows up while the tag library is empty and disappears once anything's loaded — it's not that the feature vanished, just that its entry point does. If you need to import/export again after that, use **Settings → Backup Settings** instead, which stays available regardless of whether tags are already loaded.
-
-Either way, import is a one-time, disconnected copy — it doesn't live-sync. If the taxonomy here changes later, redo the relevant step above to pick up the update (see `CHANGELOG.md` for what changed).
+Import is a one-time, disconnected copy — it doesn't live-sync. If the taxonomy here changes later, redo the import to pick up the update (see `CHANGELOG.md` for what changed).
 
 ## Sharing tagged files with someone
 
