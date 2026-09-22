@@ -65,22 +65,24 @@ What each flag is doing:
 
 ## Using the 7-Zip GUI instead of the CLI
 
-Right-click a model's folder → **7-Zip → Add to archive...** exposes the same settings as the CLI flags above, plus one control the CLI recipe leaves on its safe automatic default: Solid Block size.
+Right-click a model's folder → **7-Zip → Add to archive...** exposes the same settings as the CLI flags above.
 
 | Dialog field | Set to |
 |---|---|
 | Archive format | `7z` |
 | Compression level | `Ultra` |
 | Compression method | `LZMA2` |
-| Dictionary size | `1536 MB` |
+| Dictionary size | `1536 MB` (see warning below if this blocks with a memory error) |
 | Word size | `273` |
-| Solid Block size | **`2 GB`** — see warning below, do not pick the largest option offered |
-| Number of CPU threads | max, back off if the live memory readout demands it (see below) |
+| Solid Block size | `2 GB` is fine - doesn't meaningfully affect the memory check either way |
+| Number of CPU threads | see warning below - this is the actual lever if you hit a memory block |
 | Parameters | `qs=on` (the dialog wants the `-m` prefix omitted — this is `-mqs=on` on the CLI) |
 | Split to volumes | leave blank |
 | Delete files after compression | **leave unchecked** |
 
-**Do not set Solid Block size to the largest available option (e.g. 16 GB).** The CLI recipe's `-ms=on` leaves 7-Zip to size the solid block automatically and never hits this; the GUI makes you choose explicitly, and choosing too large a block combined with a big dictionary and multiple threads makes 7-Zip try to run several dictionary-sized compression streams in parallel — the dialog will refuse with "blocked by 7-Zip / can require big amount of RAM," reporting a memory need many times your installed RAM (71 GB demanded against 32 GB installed and a 26 GB self-imposed limit, in one real case on this machine). A single model's total data rarely exceeds a couple GB, so `2 GB` already gives full solid coverage of the whole archive with no ratio cost — there's nothing to gain from going bigger, only memory risk. If the dialog's live "Memory usage for Compressing" figure is still too high with Solid Block size at `2 GB`, reduce "Number of CPU threads" next (try 4–6) rather than reducing Dictionary size, since dictionary size is the setting actually doing ratio work.
+**If the dialog blocks with "can require big amount of RAM": drop Number of CPU threads, not Solid Block size.** Confirmed on this machine by testing: the pre-flight memory estimate tracks Dictionary size and thread count, not Solid Block size at all - changing the block size doesn't move the number. The mechanism is that Ultra-level LZMA2 can run multiple compression streams in parallel across threads, and each parallel stream needs its own full dictionary-sized buffer, so memory scales with roughly `dictionary size × (threads ÷ 2)`. At `1536 MB` and enough threads, that easily exceeds 32 GB of RAM (one real case here demanded ~71 GB).
+
+Fix it by lowering **Number of CPU threads** first - try 2-4 and watch the live "Memory usage for Compressing" figure drop. This costs only speed, not ratio, since it just reduces how many parallel dictionary-sized streams get allocated at once. Only reduce Dictionary size itself if you want to keep more threads for speed and can't clear the memory check on thread count alone - that trade does cost real ratio, unlike thread count.
 
 **Uncheck "Delete files after compression."** It's a genuine 7-Zip option, but it skips straight past the verify-then-delete step this whole standard is built around — always test the archive (`7z t`, or the GUI's own Test option) before removing the source yourself.
 
