@@ -2,6 +2,10 @@
 
 All notable changes to the tag taxonomy and folder framework are logged here, newest first.
 
+## 2026-09-22 — v1.7.0 — Seeded 19 real Creator values
+
+Pulled real, verifiable creator/studio names from MyMiniFactory's own blog posts and search results to pre-populate `Creator` (previously only `Tiny-Legends`) — no official "top creators" leaderboard exists on the platform to rank against, so this isn't a verified top-N list, just genuinely real names confirmed to exist rather than invented ones. Added: `Printed-Obsession`, `Rescale-Miniatures`, `Archvillain-Games`, `KMFP`, `Parasite-Collectibles`, `Highlands-Miniatures`, `Vae-Victis`, `Beholders-Miniatures`, `Avatars-of-War`, `White-Angel-Miniatures`, `Devale-Games`, `Custom-Miniature-Maker`, `BulkamancerSculpts`, `RedMakers`, `PrintMinis`, `Venatus-Maps`, `Scan-the-World`, `MakeAnything`, `Iain-Lovecraft`. The last three are flagged as general maker-community names rather than tabletop-specific — kept anyway since an unused Creator value costs nothing, and every real name added is one less hand-typed (and one less typo risk).
+
 ## 2026-09-21 — v1.0.0 — Initial taxonomy
 
 - Established the folder framework: object-type buckets (`Miniatures`, `Terrain`, `Tools_Accessories`) with pack-subfolder + `_Loose`/`_Unknown` convention, plus `_Inbox` for untriaged migration intake.

@@ -237,7 +237,26 @@
       "readOnly": "false",
       "expanded": false,
       "children": [
-        { "type": "sidecar", "title": "Tiny-Legends", "description": "Unconfirmed - studio name or a range name spanning multiple creators?", "color": "#3d5a80ff", "textcolor": "white" }
+        { "type": "sidecar", "title": "Tiny-Legends", "description": "Unconfirmed - studio name or a range name spanning multiple creators?", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "Printed-Obsession", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "Rescale-Miniatures", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "Archvillain-Games", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "KMFP", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "Parasite-Collectibles", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "Highlands-Miniatures", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "Vae-Victis", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "Beholders-Miniatures", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "Avatars-of-War", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "White-Angel-Miniatures", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "Devale-Games", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "Custom-Miniature-Maker", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "BulkamancerSculpts", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "RedMakers", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "PrintMinis", "description": "Grimdark sci-fi miniatures and terrain", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "Venatus-Maps", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "Scan-the-World", "description": "Heritage/art scanning project, not tabletop-specific", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "MakeAnything", "description": "General maker content, not tabletop-specific", "color": "#3d5a80ff", "textcolor": "white" },
+        { "type": "sidecar", "title": "Iain-Lovecraft", "description": "General maker content, not tabletop-specific", "color": "#3d5a80ff", "textcolor": "white" }
       ]
     },
     {
