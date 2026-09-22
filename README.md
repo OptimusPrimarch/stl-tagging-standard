@@ -14,13 +14,29 @@ This repo holds **only the classification system** — the tag library definitio
 - [`scripts/Wrap-Pack.ps1`](./scripts/Wrap-Pack.ps1) — wraps a pack folder of already-compressed `Model.7z` files into a single store-mode `.zip` for handing a whole pack to someone. Disposable/regenerable, never deletes the source.
 - [`CHANGELOG.md`](./CHANGELOG.md) — how the taxonomy and standards have evolved over time.
 
+## Keeping the primary collection (F:\STL_CENTRAL) in sync
+
+TagSpaces reads a location's tags from a plain file called `tsl.json` sitting in that location's own `.ts` folder — same JSON format as `tag-library.json`, just placed by hand instead of through an in-app import. This works in the free **Lite** edition with no import UI involved at all, confirmed by testing.
+
+Whenever this repo's `tag-library.json` changes, sync it in:
+
+```powershell
+Copy-Item "F:\STL_CENTRAL\_TagStandard\tag-library.json" "F:\STL_CENTRAL\.ts\tsl.json" -Force
+```
+
+Then just reopen the location in TagSpaces — no menus, no re-import, nothing that can go missing.
+
 ## Using this on a new machine or with a friend
 
-1. Install [TagSpaces](https://www.tagspaces.org/products/lite/) (the free Lite version reads/writes sidecar tags).
+`tsl.json` is scoped to one location, so for anywhere else — a different machine, or a friend who isn't setting up `F:\STL_CENTRAL` as their own location — use the global Tag Library import instead:
+
+1. Install [TagSpaces](https://www.tagspaces.org/products/lite/) (the free Lite version reads/writes filename and sidecar tags).
 2. Open TagSpaces → Settings → Tag Library → **Import Tag Library** → select `tag-library.json`.
 3. Read `TAGGING_GUIDE.md` for how the groups are meant to be used.
 
-Import is a one-time, disconnected copy — it doesn't live-sync. If the taxonomy here changes later, re-import to pick up the update (see `CHANGELOG.md` for what changed).
+**Known Lite quirk**: the Import/Export menu (the `⋮` on the Tag Library panel) only shows up while the tag library is empty and disappears once anything's loaded — it's not that the feature vanished, just that its entry point does. If you need to import/export again after that, use **Settings → Backup Settings** instead, which stays available regardless of whether tags are already loaded.
+
+Either way, import is a one-time, disconnected copy — it doesn't live-sync. If the taxonomy here changes later, redo the relevant step above to pick up the update (see `CHANGELOG.md` for what changed).
 
 ## Sharing tagged files with someone
 

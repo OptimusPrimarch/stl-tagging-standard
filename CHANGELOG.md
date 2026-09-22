@@ -2,6 +2,12 @@
 
 All notable changes to the tag taxonomy and folder framework are logged here, newest first.
 
+## 2026-09-22 — v1.8.0 — Confirmed a Pro-free sync workflow
+
+- Confirmed TagSpaces Pro marketing page lists "Export and import location configurations," "Collect all tags used in a given location," and "Specify tagging method (filename or sidecar) per location" as Pro-exclusive — the free Lite edition genuinely does not have the convenient Tag Library import/export path documented earlier, it wasn't a UI we were missing.
+- Tested and confirmed a free workaround: placing `tag-library.json`'s content as `tsl.json` in a location's `.ts` folder works in Lite with no import UI at all. This is now the primary sync method for `F:\STL_CENTRAL` specifically (see README.md) — just overwrite `F:\STL_CENTRAL\.ts\tsl.json` and reopen the location.
+- Also found: the global Tag Library's `⋮` import/export menu only appears while the library is empty and disappears once populated — not a missing feature, a state-dependent entry point. **Settings → Backup Settings** provides the same import/export capability and stays available regardless of state; useful for onboarding a different machine or a friend who isn't using `F:\STL_CENTRAL` as their own location.
+
 ## 2026-09-22 — v1.7.0 — Seeded 19 real Creator values
 
 Pulled real, verifiable creator/studio names from MyMiniFactory's own blog posts and search results to pre-populate `Creator` (previously only `Tiny-Legends`) — no official "top creators" leaderboard exists on the platform to rank against, so this isn't a verified top-N list, just genuinely real names confirmed to exist rather than invented ones. Added: `Printed-Obsession`, `Rescale-Miniatures`, `Archvillain-Games`, `KMFP`, `Parasite-Collectibles`, `Highlands-Miniatures`, `Vae-Victis`, `Beholders-Miniatures`, `Avatars-of-War`, `White-Angel-Miniatures`, `Devale-Games`, `Custom-Miniature-Maker`, `BulkamancerSculpts`, `RedMakers`, `PrintMinis`, `Venatus-Maps`, `Scan-the-World`, `MakeAnything`, `Iain-Lovecraft`. The last three are flagged as general maker-community names rather than tabletop-specific — kept anyway since an unused Creator value costs nothing, and every real name added is one less hand-typed (and one less typo risk).
