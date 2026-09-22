@@ -236,7 +236,9 @@
       "textcolor": "white",
       "readOnly": "false",
       "expanded": false,
-      "children": []
+      "children": [
+        { "type": "sidecar", "title": "Tiny-Legends", "description": "Unconfirmed - studio name or a range name spanning multiple creators?", "color": "#3d5a80ff", "textcolor": "white" }
+      ]
     },
     {
       "created_date": "1790025484242",
