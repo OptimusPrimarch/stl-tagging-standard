@@ -16,15 +16,15 @@ This repo holds **only the classification system** — the tag library definitio
 
 ## Keeping the primary collection (F:\STL_CENTRAL) in sync
 
-TagSpaces reads a location's tags from a plain file called `tsl.json` sitting in that location's own `.ts` folder — same JSON format as `tag-library.json`, just placed by hand instead of through an in-app import. This works in the free **Lite** edition with no import UI involved at all, confirmed by testing.
+TagSpaces reads a location's tags from a plain file called `tsl.json` sitting in that location's own `.ts` folder — same JSON format as `tag-library.json`. This works in the free **Lite** edition with no import UI involved at all, confirmed by testing.
 
-Whenever this repo's `tag-library.json` changes, sync it in:
+`F:\STL_CENTRAL\.ts\tsl.json` is a **symlink** to this repo's `tag-library.json`, not a copy — there's genuinely one file, tracked here, read live by TagSpaces through the link. Editing `tag-library.json` and reopening the location in TagSpaces is the entire update process; nothing needs copying or re-exporting ever again.
+
+The symlink needed a one-time elevated PowerShell command to create (`New-Item -ItemType SymbolicLink`, since this machine doesn't have Developer Mode enabled) — if it's ever missing (e.g. after moving the drive to another machine), recreate it:
 
 ```powershell
-Copy-Item "F:\STL_CENTRAL\_TagStandard\tag-library.json" "F:\STL_CENTRAL\.ts\tsl.json" -Force
+New-Item -ItemType SymbolicLink -Path "F:\STL_CENTRAL\.ts\tsl.json" -Target "F:\STL_CENTRAL\_TagStandard\tag-library.json"
 ```
-
-Then just reopen the location in TagSpaces — no menus, no re-import, nothing that can go missing.
 
 ## Using this on a new machine or with a friend
 
