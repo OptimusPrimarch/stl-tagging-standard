@@ -48,3 +48,9 @@ A tag library export from an earlier, independent attempt at this project (`tags
 - Established the outer zip as disposable/regenerate-on-demand at share time, not the permanent at-rest form - keeps every model's own tags fully live for day-to-day search on the drive itself.
 - Added `scripts/Wrap-Pack.ps1`.
 - Documented fixed-size volume-splitting (`-v`) as a delivery-mechanism knob with zero effect on compression ratio, and explicitly not a default: splitting a `Model.7z` breaks the single-file/tag mapping the whole taxonomy depends on. Left as a one-off tool for a specific transfer-size constraint, applied to a disposable copy, not to the archive that lives in the collection.
+
+## 2026-09-22 — v1.5.0 — Corrected a bad GUI recommendation: Solid Block size
+
+- Earlier guidance told the GUI's "Add to archive" dialog to use the largest available Solid Block size. In practice (hit for real on this machine) an oversized block combined with the 1536 MB dictionary and multithreading made 7-Zip try to run several dictionary-sized compression streams in parallel, demanding ~71 GB against 32 GB installed RAM - the operation was blocked outright.
+- Corrected to `2 GB`: comfortably larger than any single model's real total size (per the samples already measured), so solid coverage of the whole archive is unaffected, at zero ratio cost. The CLI recipe (`-ms=on`) was never affected since it leaves block sizing to 7-Zip's own automatic default rather than forcing a specific size.
+- Added a "Using the 7-Zip GUI" section to `COMPRESSION_STANDARD.md` with the full field mapping, this specific warning, and a reminder to leave "Delete files after compression" unchecked (it bypasses the verify-then-delete step the standard depends on).

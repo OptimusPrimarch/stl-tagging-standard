@@ -63,6 +63,27 @@ What each flag is doing:
 - `-mqs=on` — sorts files by type before the solid pass, so STLs, LYS project files, and renders end up adjacent in the stream instead of interleaved. (Its usual downside — slower seeks on HDDs from non-name-order layout — doesn't apply on an SSD.)
 - `-mmt=on` — use all 16 cores. LZMA2 can parallelize within a solid block at `mx=9`, so this buys speed back with no meaningful ratio cost.
 
+## Using the 7-Zip GUI instead of the CLI
+
+Right-click a model's folder → **7-Zip → Add to archive...** exposes the same settings as the CLI flags above, plus one control the CLI recipe leaves on its safe automatic default: Solid Block size.
+
+| Dialog field | Set to |
+|---|---|
+| Archive format | `7z` |
+| Compression level | `Ultra` |
+| Compression method | `LZMA2` |
+| Dictionary size | `1536 MB` |
+| Word size | `273` |
+| Solid Block size | **`2 GB`** — see warning below, do not pick the largest option offered |
+| Number of CPU threads | max, back off if the live memory readout demands it (see below) |
+| Parameters | `qs=on` (the dialog wants the `-m` prefix omitted — this is `-mqs=on` on the CLI) |
+| Split to volumes | leave blank |
+| Delete files after compression | **leave unchecked** |
+
+**Do not set Solid Block size to the largest available option (e.g. 16 GB).** The CLI recipe's `-ms=on` leaves 7-Zip to size the solid block automatically and never hits this; the GUI makes you choose explicitly, and choosing too large a block combined with a big dictionary and multiple threads makes 7-Zip try to run several dictionary-sized compression streams in parallel — the dialog will refuse with "blocked by 7-Zip / can require big amount of RAM," reporting a memory need many times your installed RAM (71 GB demanded against 32 GB installed and a 26 GB self-imposed limit, in one real case on this machine). A single model's total data rarely exceeds a couple GB, so `2 GB` already gives full solid coverage of the whole archive with no ratio cost — there's nothing to gain from going bigger, only memory risk. If the dialog's live "Memory usage for Compressing" figure is still too high with Solid Block size at `2 GB`, reduce "Number of CPU threads" next (try 4–6) rather than reducing Dictionary size, since dictionary size is the setting actually doing ratio work.
+
+**Uncheck "Delete files after compression."** It's a genuine 7-Zip option, but it skips straight past the verify-then-delete step this whole standard is built around — always test the archive (`7z t`, or the GUI's own Test option) before removing the source yourself.
+
 Verify, always, before deleting the source:
 
 ```powershell
