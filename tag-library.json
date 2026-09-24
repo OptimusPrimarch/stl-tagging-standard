@@ -1,324 +1,1116 @@
-{
-  "appName": "TagSpaces",
-  "appVersion": "6.4.5",
-  "settingsVersion": 3,
-  "tagGroups": [
-    {
-      "created_date": "1790025484242",
-      "modified_date": "1790025484242",
-      "uuid": "0262e704bc634564a4c4e86a9cb0abb8",
-      "title": "ObjectType",
-      "color": "#008000",
-      "textcolor": "#9fe1e7",
-      "readOnly": "false",
-      "expanded": true,
-      "children": [
-        { "type": "sidecar", "title": "Miniatures", "color": "#008000", "textcolor": "#9fe1e7" },
-        { "type": "sidecar", "title": "Terrain", "color": "#008000", "textcolor": "#9fe1e7" },
-        { "type": "sidecar", "title": "Tools-Accessories", "color": "#008000", "textcolor": "#9fe1e7" },
-        { "type": "sidecar", "title": "Print-and-Play", "description": "Board/card game components, not miniatures or terrain", "color": "#008000", "textcolor": "#9fe1e7" },
-        { "type": "sidecar", "title": "Papercraft", "description": "Paper-based models/terrain, not 3D-printed", "color": "#008000", "textcolor": "#9fe1e7" }
-      ]
-    },
-    {
-      "created_date": "1790025484242",
-      "modified_date": "1790112000000",
-      "uuid": "4587bf9829b449b2b34ca383c621da39",
-      "title": "GameSystem",
-      "color": "#9fc6e7",
-      "textcolor": "#000000",
-      "readOnly": "false",
-      "expanded": true,
-      "children": [
-        { "type": "sidecar", "title": "Warhammer-40k", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "Age-of-Sigmar", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "Age-of-Fantasy", "description": "One Page Rules", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "Grimdark-Future", "description": "One Page Rules", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "Kill-Team", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "Infinity", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "Trench-Crusade", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "Torch-and-Shield", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "Arsenal", "description": "Carried over from previous library, unverified meaning", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "FSD", "description": "Carried over from previous library, unverified meaning", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "1490-Doom", "description": "Carried over from previous library, unverified meaning", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "DnD-5e", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "Battletech", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "Warmachine-Hordes", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "Necromunda", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "Star-Wars-Legion", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "Malifaux", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "Bolt-Action", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "Pathfinder", "color": "#9fc6e7", "textcolor": "#000000" },
-        { "type": "sidecar", "title": "Generic-System-Agnostic", "description": "Not tied to any specific ruleset - usable anywhere", "color": "#9fc6e7", "textcolor": "#000000" }
-      ]
-    },
-    {
-      "created_date": "1790025484242",
-      "modified_date": "1790112000000",
-      "uuid": "b77df3207e7c4a91b18b009fdfc9becd",
-      "title": "Genre",
-      "color": "#61DD61",
-      "textcolor": "white",
-      "readOnly": "false",
-      "expanded": true,
-      "children": [
-        { "type": "sidecar", "title": "Fantasy", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Sci-Fi", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Grimdark", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Dieselpunk", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Steampunk", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Cyberpunk", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Post-Apocalyptic", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Historical", "description": "General fallback for historical settings not covered by a specific era below", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Horror", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Western", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Pulp", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Modern", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Ancient-History", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "WW1", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "WW2", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Cold-War", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Viking", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Black-Powder", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Dinos", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Aerial", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Naval", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Starship", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Star-Wars", "description": "Thematic setting - independent of which ruleset is used (see GameSystem:Star-Wars-Legion for the official ruleset specifically)", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "RPG", "description": "Thematic/aesthetic RPG flavor - see Format:Warband-RPG for party-scale play sizing", "color": "#61DD61", "textcolor": "white" },
-        { "type": "sidecar", "title": "Bugs", "color": "#61DD61", "textcolor": "white" }
-      ]
-    },
-    {
-      "created_date": "1790025484242",
-      "modified_date": "1790112000000",
-      "uuid": "9f667ae0e78243bcb1d96efebb7f5d2b",
-      "title": "Faction",
-      "color": "#f83a22",
-      "textcolor": "white",
-      "readOnly": "false",
-      "expanded": true,
-      "children": [
-        { "type": "sidecar", "title": "Chaos", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Khorne", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Tzeentch", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Nurgle", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Slaanesh", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Imperium", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Astartes", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Space-Wolves", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Dark-Angels", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Blood-Angels", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Grey-Knights", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Flesh-Tearers", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Guard", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Steel-Legion", "description": "Astra Militarum regiment - apply alongside Imperium + Guard", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Sisters", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Titans", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Knights", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Demons", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Eldar", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Dark", "description": "Carried over from previous library as-is - confirm intended meaning (Dark Eldar/Drukhari?)", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Tyranids", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Saurians", "description": "Carried over from previous library as-is", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Saurian-Starhost", "description": "Carried over from previous library as-is", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Orks", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Necrons", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Undead", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Humans", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Dwarves", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Greenskins-Orcs", "color": "#f83a22", "textcolor": "white" },
-        { "type": "sidecar", "title": "Custom-Homebrew", "color": "#f83a22", "textcolor": "white" }
-      ]
-    },
-    {
-      "created_date": "1790025484242",
-      "modified_date": "1790112000000",
-      "uuid": "c4780c1bced34d93bae46304cfec6201",
-      "title": "Unit-Type",
-      "color": "#d1653dff",
-      "textcolor": "white",
-      "readOnly": "false",
-      "expanded": true,
-      "children": [
-        { "type": "sidecar", "title": "Infantry", "color": "#d1653dff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Cavalry", "color": "#d1653dff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Vehicle", "color": "#d1653dff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Monster", "color": "#d1653dff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Character-Hero", "color": "#d1653dff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Bits", "description": "Interchangeable weapon/head/upgrade parts for an existing squad - not a standalone miniature. Tag with the same Faction/regiment as the squad it fits.", "color": "#d1653dff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Bust", "description": "Bust-format display piece", "color": "#d1653dff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Display-Sculpture", "description": "Non-gaming standalone display piece", "color": "#d1653dff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Ruins", "description": "Terrain: ruined structures", "color": "#d1653dff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Fortification", "description": "Terrain: walls, bunkers, defensive works", "color": "#d1653dff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Scatter-Terrain", "description": "Terrain: small dressing pieces, debris, props", "color": "#d1653dff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Dungeon-Tile", "description": "Terrain: modular dungeon/interior tiles", "color": "#d1653dff", "textcolor": "white" }
-      ]
-    },
-    {
-      "created_date": "1790025484242",
-      "modified_date": "1790025484242",
-      "uuid": "c756942f44fb4aa695dc1f7d2355c34f",
-      "title": "Scope",
-      "color": "#5cb3b3ff",
-      "textcolor": "black",
-      "readOnly": "false",
-      "expanded": true,
-      "children": [
-        { "type": "sidecar", "title": "Single", "description": "One sculpt, one file", "color": "#5cb3b3ff", "textcolor": "black" },
-        { "type": "sidecar", "title": "Multi-Pose", "description": "Same model, multiple pose/variant options", "color": "#5cb3b3ff", "textcolor": "black" },
-        { "type": "sidecar", "title": "Squad", "description": "A themed group of roughly 5-10 units", "color": "#5cb3b3ff", "textcolor": "black" },
-        { "type": "sidecar", "title": "Warband", "description": "A themed group of roughly 10-20 units", "color": "#5cb3b3ff", "textcolor": "black" },
-        { "type": "sidecar", "title": "Unit-Box", "description": "Mirrors a standard tabletop unit box", "color": "#5cb3b3ff", "textcolor": "black" },
-        { "type": "sidecar", "title": "Faction-Bundle", "description": "Multiple unit types from one faction (previously tagged 'Army' in old ProductType group)", "color": "#5cb3b3ff", "textcolor": "black" },
-        { "type": "sidecar", "title": "Mega-Bundle", "description": "An entire faction or range in one bundle", "color": "#5cb3b3ff", "textcolor": "black" }
-      ]
-    },
-    {
-      "created_date": "1790025484242",
-      "modified_date": "1790025484242",
-      "uuid": "d4e18d4760aa4e39971441528bdf61b8",
-      "title": "Scale",
-      "color": "#8f8f8fff",
-      "textcolor": "white",
-      "readOnly": "false",
-      "expanded": true,
-      "children": [
-        { "type": "sidecar", "title": "10mm", "color": "#8f8f8fff", "textcolor": "white" },
-        { "type": "sidecar", "title": "15mm", "color": "#8f8f8fff", "textcolor": "white" },
-        { "type": "sidecar", "title": "28mm", "color": "#8f8f8fff", "textcolor": "white" },
-        { "type": "sidecar", "title": "32mm", "color": "#8f8f8fff", "textcolor": "white" },
-        { "type": "sidecar", "title": "54mm", "color": "#8f8f8fff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Unspecified", "color": "#8f8f8fff", "textcolor": "white" }
-      ]
-    },
-    {
-      "created_date": "1790025484242",
-      "modified_date": "1790112000000",
-      "uuid": "7fb498fecfe1416994fbd3f6c51c9c04",
-      "title": "Format",
-      "color": "#b35cb3ff",
-      "textcolor": "white",
-      "readOnly": "false",
-      "expanded": true,
-      "children": [
-        { "type": "sidecar", "title": "Skirmish", "description": "Small-scale games, roughly 5-20 models", "color": "#b35cb3ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Warband-RPG", "description": "Party/warband scale, RPG-adjacent", "color": "#b35cb3ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Mass-Battle", "description": "Rank-and-file, large unit counts", "color": "#b35cb3ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Fleet-Naval", "description": "Ship/vehicle-scale fleet games", "color": "#b35cb3ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Combat-Patrol", "description": "Official 40k small-points-limit format", "color": "#b35cb3ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Spearhead", "description": "Official 40k vehicle/monster-focused format", "color": "#b35cb3ff", "textcolor": "white" }
-      ]
-    },
-    {
-      "created_date": "1790025484242",
-      "modified_date": "1790112000000",
-      "uuid": "f41059c308524134855c3af4b35e8e76",
-      "title": "Material",
-      "color": "#000000",
-      "textcolor": "white",
-      "readOnly": "false",
-      "expanded": true,
-      "children": [
-        { "type": "sidecar", "title": "Resin", "color": "#000000", "textcolor": "white" },
-        { "type": "sidecar", "title": "FDM", "color": "#000000", "textcolor": "white" },
-        { "type": "sidecar", "title": "Wood", "description": "e.g. laser-cut MDF terrain", "color": "#000000", "textcolor": "white" },
-        { "type": "sidecar", "title": "Paper", "color": "#000000", "textcolor": "white" },
-        { "type": "sidecar", "title": "Unspecified", "color": "#000000", "textcolor": "white" }
-      ]
-    },
-    {
-      "created_date": "1790025484242",
-      "modified_date": "1790025484242",
-      "uuid": "74fb2d1a503d4ff0b673517474cbb5b9",
-      "title": "Creator",
-      "color": "#3d5a80ff",
-      "textcolor": "white",
-      "readOnly": "false",
-      "expanded": false,
-      "children": [
-        { "type": "sidecar", "title": "Tiny-Legends", "description": "Unconfirmed - studio name or a range name spanning multiple creators?", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Printed-Obsession", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Rescale-Miniatures", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Archvillain-Games", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "KMFP", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Parasite-Collectibles", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Highlands-Miniatures", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Vae-Victis", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Beholders-Miniatures", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Avatars-of-War", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "White-Angel-Miniatures", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Devale-Games", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Custom-Miniature-Maker", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "BulkamancerSculpts", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "RedMakers", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "PrintMinis", "description": "Grimdark sci-fi miniatures and terrain", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Venatus-Maps", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Scan-the-World", "description": "Heritage/art scanning project, not tabletop-specific", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "MakeAnything", "description": "General maker content, not tabletop-specific", "color": "#3d5a80ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Iain-Lovecraft", "description": "General maker content, not tabletop-specific", "color": "#3d5a80ff", "textcolor": "white" }
-      ]
-    },
-    {
-      "created_date": "1790025484242",
-      "modified_date": "1790025484242",
-      "uuid": "e596b090377f4502b6bd91cd51c9164e",
-      "title": "Source",
-      "color": "#9c9c4dff",
-      "textcolor": "black",
-      "readOnly": "false",
-      "expanded": true,
-      "children": [
-        { "type": "sidecar", "title": "MyMiniFactory", "color": "#9c9c4dff", "textcolor": "black" },
-        { "type": "sidecar", "title": "Cults3D", "color": "#9c9c4dff", "textcolor": "black" },
-        { "type": "sidecar", "title": "Thingiverse", "color": "#9c9c4dff", "textcolor": "black" },
-        { "type": "sidecar", "title": "Patreon", "color": "#9c9c4dff", "textcolor": "black" },
-        { "type": "sidecar", "title": "Kickstarter", "color": "#9c9c4dff", "textcolor": "black" },
-        { "type": "sidecar", "title": "Direct-Other", "color": "#9c9c4dff", "textcolor": "black" }
-      ]
-    },
-    {
-      "created_date": "1790025484242",
-      "modified_date": "1790025484242",
-      "uuid": "4cddeab89fca4575820918824b74cddd",
-      "title": "License",
-      "color": "#d13d3dff",
-      "textcolor": "white",
-      "readOnly": "false",
-      "expanded": true,
-      "children": [
-        { "type": "sidecar", "title": "Personal-Only", "description": "No sharing in any form - not files, not prints", "color": "#d13d3dff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Share-Prints-Only", "description": "Physical prints may be gifted; the digital file may not be shared", "color": "#d13d3dff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Share-Files-Personal", "description": "File may be shared with friends, non-commercial, not public", "color": "#d13d3dff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Share-Public", "description": "Freely shareable/redistributable per its license", "color": "#d13d3dff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Unverified", "description": "License not yet confirmed - treat as Personal-Only until checked", "color": "#d13d3dff", "textcolor": "white" }
-      ]
-    },
-    {
-      "created_date": "1790025484242",
-      "modified_date": "1790025484242",
-      "uuid": "f772e0f3986341cd9150949136781ae5",
-      "title": "Status",
-      "color": "#555555ff",
-      "textcolor": "white",
-      "readOnly": "false",
-      "expanded": true,
-      "children": [
-        { "type": "sidecar", "title": "Needs-Triage", "description": "Not yet reviewed/tagged - workflow marker, remove once processed", "color": "#555555ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Printed", "color": "#555555ff", "textcolor": "white" },
-        { "type": "sidecar", "title": "Favorite", "color": "#555555ff", "textcolor": "white" }
-      ]
-    },
-    {
-      "created_date": "1790112000000",
-      "modified_date": "1790112000000",
-      "uuid": "033e9824605c4df7b0f4cc48772d8f4f",
-      "title": "ProjectPlans",
-      "color": "#fad165",
-      "textcolor": "#000000",
-      "readOnly": "false",
-      "expanded": false,
-      "children": []
-    }
-  ]
+﻿{
+    "appName":  "TagSpaces",
+    "appVersion":  "6.4.5",
+    "settingsVersion":  3,
+    "tagGroups":  [
+                      {
+                          "created_date":  "1790025484242",
+                          "modified_date":  "1790025484242",
+                          "uuid":  "0262e704bc634564a4c4e86a9cb0abb8",
+                          "title":  "ObjectType",
+                          "color":  "#008000",
+                          "textcolor":  "#9fe1e7",
+                          "readOnly":  "false",
+                          "expanded":  true,
+                          "children":  [
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "MINIATURES",
+                                               "color":  "#008000",
+                                               "textcolor":  "#9fe1e7"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "TERRAIN",
+                                               "color":  "#008000",
+                                               "textcolor":  "#9fe1e7"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "TOOLS_ACCESSORIES",
+                                               "color":  "#008000",
+                                               "textcolor":  "#9fe1e7"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "PRINT_AND_PLAY",
+                                               "description":  "Board/card game components, not miniatures or terrain",
+                                               "color":  "#008000",
+                                               "textcolor":  "#9fe1e7"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "PAPERCRAFT",
+                                               "description":  "Paper-based models/terrain, not 3D-printed",
+                                               "color":  "#008000",
+                                               "textcolor":  "#9fe1e7"
+                                           }
+                                       ]
+                      },
+                      {
+                          "created_date":  "1790025484242",
+                          "modified_date":  "1790112000000",
+                          "uuid":  "4587bf9829b449b2b34ca383c621da39",
+                          "title":  "GameSystem",
+                          "color":  "#9fc6e7",
+                          "textcolor":  "#000000",
+                          "readOnly":  "false",
+                          "expanded":  true,
+                          "children":  [
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "WARHAMMER_40K",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "AGE_OF_SIGMAR",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "AGE_OF_FANTASY",
+                                               "description":  "One Page Rules",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "GRIMDARK_FUTURE",
+                                               "description":  "One Page Rules",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "KILL_TEAM",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "INFINITY",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "TRENCH_CRUSADE",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "TORCH_AND_SHIELD",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "ARSENAL",
+                                               "description":  "Carried over from previous library, unverified meaning",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "FSD",
+                                               "description":  "Carried over from previous library, unverified meaning",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "1490_DOOM",
+                                               "description":  "Carried over from previous library, unverified meaning",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "DND_5E",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "BATTLETECH",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "WARMACHINE_HORDES",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "NECROMUNDA",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "STAR_WARS_LEGION",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "MALIFAUX",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "BOLT_ACTION",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "PATHFINDER",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "GENERIC_SYSTEM_AGNOSTIC",
+                                               "description":  "Not tied to any specific ruleset - usable anywhere",
+                                               "color":  "#9fc6e7",
+                                               "textcolor":  "#000000"
+                                           }
+                                       ]
+                      },
+                      {
+                          "created_date":  "1790025484242",
+                          "modified_date":  "1790112000000",
+                          "uuid":  "b77df3207e7c4a91b18b009fdfc9becd",
+                          "title":  "Genre",
+                          "color":  "#61DD61",
+                          "textcolor":  "white",
+                          "readOnly":  "false",
+                          "expanded":  true,
+                          "children":  [
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "FANTASY",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "SCI_FI",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "GRIMDARK",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "DIESELPUNK",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "STEAMPUNK",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "CYBERPUNK",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "POST_APOCALYPTIC",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "HISTORICAL",
+                                               "description":  "General fallback for historical settings not covered by a specific era below",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "HORROR",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "WESTERN",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "PULP",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "MODERN",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "ANCIENT_HISTORY",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "WW1",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "WW2",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "COLD_WAR",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "VIKING",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "BLACK_POWDER",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "DINOS",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "AERIAL",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "NAVAL",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "STARSHIP",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "STAR_WARS",
+                                               "description":  "Thematic setting - independent of which ruleset is used (see GameSystem:Star-Wars-Legion for the official ruleset specifically)",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "RPG",
+                                               "description":  "Thematic/aesthetic RPG flavor - see Format:Warband-RPG for party-scale play sizing",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "BUGS",
+                                               "color":  "#61DD61",
+                                               "textcolor":  "white"
+                                           }
+                                       ]
+                      },
+                      {
+                          "created_date":  "1790025484242",
+                          "modified_date":  "1790112000000",
+                          "uuid":  "9f667ae0e78243bcb1d96efebb7f5d2b",
+                          "title":  "Faction",
+                          "color":  "#f83a22",
+                          "textcolor":  "white",
+                          "readOnly":  "false",
+                          "expanded":  true,
+                          "children":  [
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "CHAOS",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "KHORNE",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "TZEENTCH",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "NURGLE",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "SLAANESH",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "IMPERIUM",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "ASTARTES",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "SPACE_WOLVES",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "DARK_ANGELS",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "BLOOD_ANGELS",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "GREY_KNIGHTS",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "FLESH_TEARERS",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "GUARD",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "STEEL_LEGION",
+                                               "description":  "Astra Militarum regiment - apply alongside Imperium + Guard",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "SISTERS",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "TITANS",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "KNIGHTS",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "DEMONS",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "ELDAR",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "TYRANIDS",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "SAURIANS",
+                                               "description":  "Carried over from previous library as-is",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "SAURIAN_STARHOST",
+                                               "description":  "Carried over from previous library as-is",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "ORKS",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "NECRONS",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "UNDEAD",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "HUMANS",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "DWARVES",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "GREENSKINS_ORCS",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "CUSTOM_HOMEBREW",
+                                               "color":  "#f83a22",
+                                               "textcolor":  "white"
+                                           }
+                                       ]
+                      },
+                      {
+                          "created_date":  "1790025484242",
+                          "modified_date":  "1790112000000",
+                          "uuid":  "c4780c1bced34d93bae46304cfec6201",
+                          "title":  "Unit-Type",
+                          "color":  "#d1653dff",
+                          "textcolor":  "white",
+                          "readOnly":  "false",
+                          "expanded":  true,
+                          "children":  [
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "INFANTRY",
+                                               "color":  "#d1653dff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "CAVALRY",
+                                               "color":  "#d1653dff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "VEHICLE",
+                                               "color":  "#d1653dff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "MONSTER",
+                                               "color":  "#d1653dff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "CHARACTER_HERO",
+                                               "color":  "#d1653dff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "BITS",
+                                               "description":  "Interchangeable weapon/head/upgrade parts for an existing squad - not a standalone miniature. Tag with the same Faction/regiment as the squad it fits.",
+                                               "color":  "#d1653dff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "BUST",
+                                               "description":  "Bust-format display piece",
+                                               "color":  "#d1653dff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "DISPLAY_SCULPTURE",
+                                               "description":  "Non-gaming standalone display piece",
+                                               "color":  "#d1653dff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "RUINS",
+                                               "description":  "Terrain: ruined structures",
+                                               "color":  "#d1653dff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "FORTIFICATION",
+                                               "description":  "Terrain: walls, bunkers, defensive works",
+                                               "color":  "#d1653dff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "SCATTER_TERRAIN",
+                                               "description":  "Terrain: small dressing pieces, debris, props",
+                                               "color":  "#d1653dff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "DUNGEON_TILE",
+                                               "description":  "Terrain: modular dungeon/interior tiles",
+                                               "color":  "#d1653dff",
+                                               "textcolor":  "white"
+                                           }
+                                       ]
+                      },
+                      {
+                          "created_date":  "1790025484242",
+                          "modified_date":  "1790025484242",
+                          "uuid":  "c756942f44fb4aa695dc1f7d2355c34f",
+                          "title":  "Scope",
+                          "color":  "#5cb3b3ff",
+                          "textcolor":  "black",
+                          "readOnly":  "false",
+                          "expanded":  true,
+                          "children":  [
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "SINGLE",
+                                               "description":  "One sculpt, one file",
+                                               "color":  "#5cb3b3ff",
+                                               "textcolor":  "black"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "MULTI_POSE",
+                                               "description":  "Same model, multiple pose/variant options",
+                                               "color":  "#5cb3b3ff",
+                                               "textcolor":  "black"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "SQUAD",
+                                               "description":  "A themed group of roughly 5-10 units",
+                                               "color":  "#5cb3b3ff",
+                                               "textcolor":  "black"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "WARBAND",
+                                               "description":  "A themed group of roughly 10-20 units",
+                                               "color":  "#5cb3b3ff",
+                                               "textcolor":  "black"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "UNIT_BOX",
+                                               "description":  "Mirrors a standard tabletop unit box",
+                                               "color":  "#5cb3b3ff",
+                                               "textcolor":  "black"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "FACTION_BUNDLE",
+                                               "description":  "Multiple unit types from one faction (previously tagged \u0027Army\u0027 in old ProductType group)",
+                                               "color":  "#5cb3b3ff",
+                                               "textcolor":  "black"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "MEGA_BUNDLE",
+                                               "description":  "An entire faction or range in one bundle",
+                                               "color":  "#5cb3b3ff",
+                                               "textcolor":  "black"
+                                           }
+                                       ]
+                      },
+                      {
+                          "created_date":  "1790025484242",
+                          "modified_date":  "1790025484242",
+                          "uuid":  "d4e18d4760aa4e39971441528bdf61b8",
+                          "title":  "Scale",
+                          "color":  "#8f8f8fff",
+                          "textcolor":  "white",
+                          "readOnly":  "false",
+                          "expanded":  true,
+                          "children":  [
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "10MM",
+                                               "color":  "#8f8f8fff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "15MM",
+                                               "color":  "#8f8f8fff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "28MM",
+                                               "color":  "#8f8f8fff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "32MM",
+                                               "color":  "#8f8f8fff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "54MM",
+                                               "color":  "#8f8f8fff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "UNSPECIFIED",
+                                               "color":  "#8f8f8fff",
+                                               "textcolor":  "white"
+                                           }
+                                       ]
+                      },
+                      {
+                          "created_date":  "1790025484242",
+                          "modified_date":  "1790112000000",
+                          "uuid":  "7fb498fecfe1416994fbd3f6c51c9c04",
+                          "title":  "Format",
+                          "color":  "#b35cb3ff",
+                          "textcolor":  "white",
+                          "readOnly":  "false",
+                          "expanded":  true,
+                          "children":  [
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "SKIRMISH",
+                                               "description":  "Small-scale games, roughly 5-20 models",
+                                               "color":  "#b35cb3ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "WARBAND_RPG",
+                                               "description":  "Party/warband scale, RPG-adjacent",
+                                               "color":  "#b35cb3ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "MASS_BATTLE",
+                                               "description":  "Rank-and-file, large unit counts",
+                                               "color":  "#b35cb3ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "FLEET_NAVAL",
+                                               "description":  "Ship/vehicle-scale fleet games",
+                                               "color":  "#b35cb3ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "COMBAT_PATROL",
+                                               "description":  "Official 40k small-points-limit format",
+                                               "color":  "#b35cb3ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "SPEARHEAD",
+                                               "description":  "Official 40k vehicle/monster-focused format",
+                                               "color":  "#b35cb3ff",
+                                               "textcolor":  "white"
+                                           }
+                                       ]
+                      },
+                      {
+                          "created_date":  "1790025484242",
+                          "modified_date":  "1790112000000",
+                          "uuid":  "f41059c308524134855c3af4b35e8e76",
+                          "title":  "Material",
+                          "color":  "#000000",
+                          "textcolor":  "white",
+                          "readOnly":  "false",
+                          "expanded":  true,
+                          "children":  [
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "RESIN",
+                                               "color":  "#000000",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "FDM",
+                                               "color":  "#000000",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "WOOD",
+                                               "description":  "e.g. laser-cut MDF terrain",
+                                               "color":  "#000000",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "PAPER",
+                                               "color":  "#000000",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "UNSPECIFIED",
+                                               "color":  "#000000",
+                                               "textcolor":  "white"
+                                           }
+                                       ]
+                      },
+                      {
+                          "created_date":  "1790025484242",
+                          "modified_date":  "1790025484242",
+                          "uuid":  "74fb2d1a503d4ff0b673517474cbb5b9",
+                          "title":  "Creator",
+                          "color":  "#3d5a80ff",
+                          "textcolor":  "white",
+                          "readOnly":  "false",
+                          "expanded":  false,
+                          "children":  [
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "TINY_LEGENDS",
+                                               "description":  "Studio that produced these models - confirmed",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "PRINTED_OBSESSION",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "RESCALE_MINIATURES",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "ARCHVILLAIN_GAMES",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "KMFP",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "PARASITE_COLLECTIBLES",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "HIGHLANDS_MINIATURES",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "VAE_VICTIS",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "BEHOLDERS_MINIATURES",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "AVATARS_OF_WAR",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "WHITE_ANGEL_MINIATURES",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "DEVALE_GAMES",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "CUSTOM_MINIATURE_MAKER",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "BULKAMANCER_SCULPTS",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "RED_MAKERS",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "PRINT_MINIS",
+                                               "description":  "Grimdark sci-fi miniatures and terrain",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "VENATUS_MAPS",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "SCAN_THE_WORLD",
+                                               "description":  "Heritage/art scanning project, not tabletop-specific",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "MAKE_ANYTHING",
+                                               "description":  "General maker content, not tabletop-specific",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "IAIN_LOVECRAFT",
+                                               "description":  "General maker content, not tabletop-specific",
+                                               "color":  "#3d5a80ff",
+                                               "textcolor":  "white"
+                                           }
+                                       ]
+                      },
+                      {
+                          "created_date":  "1790025484242",
+                          "modified_date":  "1790025484242",
+                          "uuid":  "e596b090377f4502b6bd91cd51c9164e",
+                          "title":  "Source",
+                          "color":  "#9c9c4dff",
+                          "textcolor":  "black",
+                          "readOnly":  "false",
+                          "expanded":  true,
+                          "children":  [
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "MY_MINI_FACTORY",
+                                               "color":  "#9c9c4dff",
+                                               "textcolor":  "black"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "CULTS3D",
+                                               "color":  "#9c9c4dff",
+                                               "textcolor":  "black"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "THINGIVERSE",
+                                               "color":  "#9c9c4dff",
+                                               "textcolor":  "black"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "PATREON",
+                                               "color":  "#9c9c4dff",
+                                               "textcolor":  "black"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "KICKSTARTER",
+                                               "color":  "#9c9c4dff",
+                                               "textcolor":  "black"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "DIRECT_OTHER",
+                                               "color":  "#9c9c4dff",
+                                               "textcolor":  "black"
+                                           }
+                                       ]
+                      },
+                      {
+                          "created_date":  "1790025484242",
+                          "modified_date":  "1790025484242",
+                          "uuid":  "4cddeab89fca4575820918824b74cddd",
+                          "title":  "License",
+                          "color":  "#d13d3dff",
+                          "textcolor":  "white",
+                          "readOnly":  "false",
+                          "expanded":  true,
+                          "children":  [
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "PERSONAL_ONLY",
+                                               "description":  "No sharing in any form - not files, not prints",
+                                               "color":  "#d13d3dff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "SHARE_PRINTS_ONLY",
+                                               "description":  "Physical prints may be gifted; the digital file may not be shared",
+                                               "color":  "#d13d3dff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "SHARE_FILES_PERSONAL",
+                                               "description":  "File may be shared with friends, non-commercial, not public",
+                                               "color":  "#d13d3dff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "SHARE_PUBLIC",
+                                               "description":  "Freely shareable/redistributable per its license",
+                                               "color":  "#d13d3dff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "UNVERIFIED",
+                                               "description":  "License not yet confirmed - treat as Personal-Only until checked",
+                                               "color":  "#d13d3dff",
+                                               "textcolor":  "white"
+                                           }
+                                       ]
+                      },
+                      {
+                          "created_date":  "1790025484242",
+                          "modified_date":  "1790025484242",
+                          "uuid":  "f772e0f3986341cd9150949136781ae5",
+                          "title":  "Status",
+                          "color":  "#555555ff",
+                          "textcolor":  "white",
+                          "readOnly":  "false",
+                          "expanded":  true,
+                          "children":  [
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "NEEDS_TRIAGE",
+                                               "description":  "Not yet reviewed/tagged - workflow marker, remove once processed",
+                                               "color":  "#555555ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "PRINTED",
+                                               "color":  "#555555ff",
+                                               "textcolor":  "white"
+                                           },
+                                           {
+                                               "type":  "sidecar",
+                                               "title":  "FAVORITE",
+                                               "color":  "#555555ff",
+                                               "textcolor":  "white"
+                                           }
+                                       ]
+                      },
+                      {
+                          "created_date":  "1790112000000",
+                          "modified_date":  "1790112000000",
+                          "uuid":  "033e9824605c4df7b0f4cc48772d8f4f",
+                          "title":  "ProjectPlans",
+                          "color":  "#fad165",
+                          "textcolor":  "#000000",
+                          "readOnly":  "false",
+                          "expanded":  false,
+                          "children":  [
+
+                                       ]
+                      }
+                  ]
 }

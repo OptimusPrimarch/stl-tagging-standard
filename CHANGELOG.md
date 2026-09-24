@@ -2,6 +2,14 @@
 
 All notable changes to the tag taxonomy and folder framework are logged here, newest first.
 
+## 2026-09-24 — v2.0.0 — Naming convention: ALL_CAPS_WITH_UNDERSCORES
+
+- Every tag *value* across all 14 groups converted from `Title-Case-Hyphenated` to `ALL_CAPS_UNDERSCORE` (e.g. `Warhammer-40k` → `WARHAMMER_40K`, `Dark-Angels` → `DARK_ANGELS`) for scan-at-a-glance readability in filenames and UI chips. Group names (`ObjectType`, `GameSystem`, ...) are unaffected — this is a values-only convention. Entries in this changelog prior to this point reflect the naming actually used at the time and are left as historical record, not retroactively renamed.
+- Two mechanical edge cases needed manual overrides rather than a blind hyphen-to-underscore conversion: `DnD-5e` → `DND_5E` (not `DN_D_5E`, which a naive camelCase split would produce) and `Cults3D` → `CULTS3D` (not `CULTS3_D` — "3D" isn't a separate word here).
+- Removed the ambiguous bare `Dark` value from `Faction` entirely. When a specific dark-something faction is needed, spell it out (`DARK_ELDAR`, `DARK_ANGELS`, etc.) rather than leaving a vague catch-all in the palette.
+- Confirmed `TINY_LEGENDS` (formerly flagged unconfirmed) as the actual studio name behind the `PlasmaGuns` bits pack — description updated accordingly.
+- Regenerated `.ts/tsl.json` and rewrote `TAGGING_GUIDE.md` in full to reflect the new convention throughout its examples and prose.
+
 ## 2026-09-22 — v1.9.0 — Corrected: import does not persist across a cold restart
 
 The v1.8.0 entry below claimed the `tsl.json` workaround was "confirmed by testing" to persist without re-import. That was wrong — the actual test that had been run left ambiguous whether the app had been fully quit or just had its location refreshed. A real test (process list confirmed empty, then a cold relaunch) showed the tag library empty either way. Corrected `README.md`: importing via **Settings → Backup Settings** is now documented as step 1 of every session, not a one-time setup step.
